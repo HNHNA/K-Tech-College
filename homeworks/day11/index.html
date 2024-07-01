@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      height: 100%;
+      display: grid;
+      /* grid-template-rows:   repe minmax(auto-fill, 1fr); */
+      grid-template-rows: repeat(auto-fill, minmax(50px ,1fr));
+
+      /* grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); */
+    }
+  </style>
+</head>
+<body>  
+  <div class="container">
+    <p style="background-color: aqua;">1</p>
+    <p style="background-color: red">2</p>
+    <p style="background-color: yellow">3</p>
+    <p style="background-color: aqua;">1</p>
+    <p style="background-color: red">2</p>
+    <p style="background-color: yellow">3</p>
+
+  </div>
+</body>
+</html>
