@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="images/ico.png">
+  <title>Day 11: Grid (cont.)</title>
+  <style>
+    @font-face {
+      font-family: 'Oswald';
+      font-style: normal;
+      font-weight: 200 700;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/oswald/v53/TK3iWkUHHAIjg752GT8G.woff2) format('woff2');
+      /* unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; */
+    }
+
+    body {
+      all: unset;
+      font-family: 'Oswald';
+    }
+
+    main#content {
+      height: calc(100vh - 48px);
+      grid-template-rows: auto 2fr 20%;
+
+      /* Hãy điều chỉnh phần Hot News trong trang sao cho phần này có width tối thiểu là 100px  mà KHÔNG SỬ DỤNG min-width . */
+      grid-template-columns: minmax(100px,1fr) 2fr 1fr 1.5fr;
+
+      gap: 10px;
+      display: grid;
+      grid-template-areas:
+        "header header header header"
+        "hotnews img sidenews sidenews2"
+        "other other other sidenews2";
+    }
+
+    /* điều chỉnh phần image sao cho đây là phần nội dung LUÔN CHIẾM NHIỀU DIỆN TÍCH nhất trang,
+     tức nếu kéo dãn màn hình ra thì phần images sẽ luôn phóng ra to nhất (giống với
+     việc set flex-grow cho phần tử này thật cao) mà không sử dụng flex. PHẢI ĐẢM BẢO KHÔNG BỊ GRID BLOW-OUT  */
+    section#img {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+    header#header {
+      position: sticky;
+      top: 0;
+      text-align: center;
+      grid-area: header;
+      background-color: #f1c40f;
+    }
+
+    header#header h2 {
+      font-size: 20px;
+      margin: 0;
+      pointer-events: none;
+    }
+
+    header#header nav {
+      /* display: flex;
+      justify-content: space-evenly;
+      font-size: large;
+      text-align: center; */
+      
+      /* sử dụng grid để có kết quả y như yêu cầu trên. */
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+    }
+
+    header#header nav a {
+      /* Requirement 1, ONLY ONE LINE */
+      /* width: 100%; */
+
+      /* Requirement 1, ONLY ONE LINE */
+
+      text-decoration: none;
+    }
+
+    header#header nav a:hover {
+      background-color: aquamarine;
+    }
+
+    section#hotnews {
+      grid-area: hotnews;
+      background-color: #e74c3c;
+    }
+
+    section#img {
+      grid-area: img;
+      background-color: #3498db;
+    }
+
+    section#sidenews {
+      grid-area: sidenews;
+      background-color: #2ecc71;
+    }
+
+    section#sidenews2 {
+      grid-area: sidenews2;
+      background-color: #9b59b6;
+    }
+
+    section#other {
+      grid-area: other;
+      background-color: #34495e;
+    }
+
+    footer {
+      margin: 12px 0;
+      text-align: center;
+    }
+
+    div ~ p{
+      color: #3498db;
+    }
+
+    label, input{
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+    <main id="content">
+      <header id="header">
+        <h2>This is a page header name</h2>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">News</a>
+          <a href="#">Blog</a>
+          <a href="#">About</a>
+        </nav>
+      </header>
+      <section id="hotnews">Hot News</section>
+      <section id="img">Image</section>
+      <section id="sidenews">Side News</section>
+      <section id="sidenews2">Side News 2</section>
+      <section id="other">Other</section>
+    </main>
+  </body>
+</body>
+
+</html>

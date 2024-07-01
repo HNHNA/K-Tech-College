@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'header header header header header header'
+  ' main main main main main menu'
+  ' footer footer footer footer footer menu ';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  /* padding: 20px 0; */
+  font-size: 30px;
+}
+
+.item3{
+    display: grid;
+    grid-template-columns: 1fr  2fr 1fr
+}
+.item3 p{
+    border: 2px solid black;
+}
+
+.item5{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.item5 p{
+    border: 2px solid black;
+}
+
+.item2 p{
+    border: 2px solid black;
+}
+</style>
+</head>
+<body>
+<div class="grid-container">
+    <!-- <div class="item4">Right</div> -->
+  <div class="item1">Header</div>
+  <div class="item3">
+    <p class="item3-text-left">nav</p>
+    <p class="item3-img">nav</p>
+    <p class="item3-text-right">nav</p>
+  </div>  
+  <div class="item5">
+      <p class="text">h</p>
+      <p class="text">h</p>
+      <p class="text">h</p>
+      <p class="text">h</p>
+    </div>
+    <div class="item2">
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+        <p class="text">Side</p>
+    </div>
+</div>
+
+</body>
+</html>

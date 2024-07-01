@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-size: 20px;
+      }
+      body {
+        font-size: 16px;
+        all: unset;
+      }
+
+      main#content {
+        height: 100vh;
+        grid-template-rows: auto 2fr auto;
+        grid-template-columns: 1fr 2fr auto 1.5fr;
+        gap: 10px;
+        display: grid;
+        grid-template-areas:
+          "header header header header"
+          "hotnews img sidenews sidenews2"
+          "other other other sidenews2";
+      }
+
+      header#header {
+        grid-area: header;
+        background-color: #f1c40f;
+      }
+
+      section#hotnews {
+        grid-area: hotnews;
+        background-color: #e74c3c;
+      }
+
+      section#img {
+        grid-area: img;
+        background-color: #3498db;
+      }
+
+      section#sidenews {
+        grid-area: sidenews;
+        background-color: #2ecc71;
+      }
+
+      section#sidenews2 {
+        grid-area: sidenews2;
+        background-color: #9b59b6;
+      }
+
+      section#other {
+        grid-area: other;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="content">
+      <header id="header">Header</header>
+      <section id="hotnews">Hot News</section>
+      <section id="img">Image</section>
+      <section id="sidenews">Side News</section>
+      <section id="sidenews2">Side News 2</section>
+      <section id="other">Other</section>
+      <script src="lib.js"></script>
+      <script>
+        fetch("list-item.html")
+          .then((response) => response.text())
+          .then(async (data) => {
+            document.querySelector("#other").innerHTML = data;
+            loadItemToList();
+          });
+
+        fetch("side-news.html")
+          .then((response) => response.text())
+          .then(async (data) => {
+            document.querySelector("#sidenews").innerHTML = data;
+            loadItemToSideNews();
+          });
+      </script>
+    </main>
+  </body>
+</html>

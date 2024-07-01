@@ -1,0 +1,49 @@
+header{
+  background-color: red;
+  height: 100px;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: 75% 25%;
+  height: 100vh;
+}
+
+.content-right{
+}
+
+.content-left{
+  background-color: rgb(18, 91, 155);
+}
+
+.top{
+  display: grid;
+  background-color: aquamarine;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+.top p{
+  background-color: black;
+  height: 40px;
+}
+
+.bottom{
+  background-color: blue;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.bottom p{
+  background-color: black;
+  height: 40px;
+  margin:  0px 20px;
+}
+
+/* .content-left{
+  /* display: flex; */
+  flex-direction: column;
+}
+.content-left p {
+  background-color: black;
+ height: 100px;
+} */

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        all: unset;
+        box-sizing: border-box;
+      }
+
+      main#content {
+        height: 100vh;
+        grid-template-rows: auto 2fr 20%;
+        grid-template-columns: 1fr 2fr 1fr 1.5fr;
+        gap: 10px;
+        display: grid;
+        grid-template-areas:
+          "header header header header"
+          "hotnews img sidenews sidenews2"
+          "other other other sidenews2";
+      }
+
+      header#header {
+        grid-area: header;
+        background-color: #f1c40f;
+      }
+
+      section#hotnews {
+        grid-area: hotnews;
+        background-color: #e74c3c;
+      }
+      #hotnews img{
+        object-fit: cover;
+      }
+      
+      #img img{
+        object-fit: cover;
+
+
+      }
+      #sidenews img{
+        object-fit: cover;
+
+      }
+
+      section#img {
+        grid-area: img;
+        background-color: #3498db;
+      }
+
+      section#sidenews {
+        grid-area: sidenews;
+        background-color: #2ecc71;
+      }
+
+      section#sidenews2 {
+        grid-area: sidenews2;
+        background-color: #9b59b6;
+      }
+
+      section#other {
+        grid-area: other;
+        background-color: #34495e;
+      }
+
+      #other{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      }
+      .item{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: aqua;
+        align-items: center;
+      }
+      .item img{
+        height: 50px;
+        width: 50px;
+      }
+      .item p{
+        margin: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        /* white-space: nowrap; */
+        /* text-overflow: ellipsis; */
+        /* width: 50px; */
+      }
+    </style>
+  </head>
+  <body>
+    <main id="content">
+      <header id="header">Header</header>
+      <section id="hotnews">
+        <!-- <img src="https://i.pinimg.com/736x/f7/a5/0e/f7a50edef27650fae000e5f3c0e7de4a.jpg" alt=""> -->
+      </section>
+      <section id="img">
+        <!-- <img src="https://i.pinimg.com/564x/46/aa/1d/46aa1df060f749f013c60538c9fcf455.jpg" alt=""> -->
+      </section>
+      <section id="sidenews">
+        <!-- <img src="https://i.pinimg.com/736x/90/54/dc/9054dc1d194df05fa872ce2cf3dfb4cb.jpg" alt=""> -->
+      </section>
+      <section id="sidenews2">Side News 2</section>
+      <section id="other">
+        <div class="item">
+          <img src="https://i.pinimg.com/474x/1c/e7/a4/1ce7a4ae6bb93291a90acac78e09f2d1.jpg" alt="">
+          <p>Title</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium possimus cum sint molestiae. Molestias, adipisci modi quasi nesciunt itaque aliquam cum omnis eligendi tempore et quia ipsum, mollitia numquam.</p>
+        </div>
+        <div class="item">
+          <img src="https://i.pinimg.com/474x/1c/e7/a4/1ce7a4ae6bb93291a90acac78e09f2d1.jpg" alt="">
+          <p>Title</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium possimus cum sint molestiae. Molestias, adipisci modi quasi nesciunt itaque aliquam cum omnis eligendi tempore et quia ipsum, mollitia numquam.</p>
+        </div>
+        <div class="item">
+          <img src="https://i.pinimg.com/474x/1c/e7/a4/1ce7a4ae6bb93291a90acac78e09f2d1.jpg" alt="">
+          <p>Title</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium possimus cum sint molestiae. Molestias, adipisci modi quasi nesciunt itaque aliquam cum omnis eligendi tempore et quia ipsum, mollitia numquam.</p>
+        </div>
+        <div class="item">
+          <img src="https://i.pinimg.com/474x/1c/e7/a4/1ce7a4ae6bb93291a90acac78e09f2d1.jpg" alt="">
+          <p>Title</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur praesentium possimus cum sint molestiae. Molestias, adipisci modi quasi nesciunt itaque aliquam cum omnis eligendi tempore et quia ipsum, mollitia numquam.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
