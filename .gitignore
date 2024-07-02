@@ -1,2 +1,13 @@
-*/log
-*.zip
+# Ignore node_modules
+node_modules/
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore build output
+dist/
+build/
+
+# Ignore specific directory
+/homeworks/day6/b9/Toronto Sneaker_files
