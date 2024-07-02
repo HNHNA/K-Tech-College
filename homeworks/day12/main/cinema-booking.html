@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    main#container{
+      display: grid;
+      grid-template-columns: repeat(10,1fr);
+      gap: 10px;
+      scale: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <main id="container"> 
+
+  </main>
+
+  
+  <script>
+    fetch("seat.html")
+      .then((response) => response.text())
+      .then(async (data) => {
+      document.querySelector("#container").innerHTML = data.repeat(100);
+      loadItemToSideNews();
+    });
+  </script>
+  
+</body>
+</html>

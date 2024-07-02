@@ -1,0 +1,126 @@
+body, html{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50px;
+}
+
+.list-menu{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  height: 50px;
+}
+
+.list-menu li{
+  list-style-type: none; 
+  display: flex;
+  align-items: center; 
+}
+
+.list-menu li a{
+  text-decoration: none;
+  color: black;
+}
+
+.new-arrivals{
+  margin: 0px 10%;
+} 
+
+.new-arrivals .btn{
+  background-color: black;
+  color: whitesmoke;
+  padding: 20px 30px;
+  border-radius: 50%;
+}
+
+
+
+.new-arrivals .product-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-arrivals .product-item .price-item{
+  display: flex; 
+  align-items: center;
+}
+
+.new-arrivals .product-item a{
+  text-decoration: none;
+  color: black;
+}
+
+.new-arrivals .product-item img{
+  width: 200px;
+}
+
+footer{
+  margin-top: 20px;
+}
+
+footer .subscribe{
+  height: 250px;
+  background-color: black;
+  color: white;
+}
+
+footer .subscribe input{
+  padding: 20px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.subscribe .subscribe-btn{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.subscribe .subscribe-btn button {
+  background-color: rgb(43, 226, 226);
+  padding: 20px 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+}
+.subscribe .subscribe-form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;margin: 0 200px;
+}
+
+.subscribe .send-subscribe{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+@media only screen and (min-width: 992px) {
+  .new-arrivals .product-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+  .new-arrivals .product-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+  
+@media only screen and (max-width: 768px) {
+  .new-arrivals .product-container{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+}
