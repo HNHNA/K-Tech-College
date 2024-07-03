@@ -51,11 +51,12 @@
 }
 
 #nav-bar {
+  z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 4px;
   position: fixed;
   left: 1vw;
-  top: 0vw;
+  top: 1vh;
   height: calc(100% - 2vh);
   /* height: 50%; */
   background: var(--navbar-dark-primary);
@@ -94,7 +95,7 @@
   z-index: 2;
   display: flex;
   align-items: center;
-  transition: width 0.2s;
+  transition: width 0.3s;
 }
 #nav-header hr {
   position: absolute;
@@ -104,6 +105,7 @@
 #nav-title {
   font-size: 1.5rem;
   transition: opacity 1s;
+  margin-left: 1em;
 }
 
 label[for=nav-toggle] {

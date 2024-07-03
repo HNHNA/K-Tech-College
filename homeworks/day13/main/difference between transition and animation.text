@@ -1,0 +1,6 @@
+Transition
+Dùng để thay đổi mượt mà từ một trạng thái này sang trạng thái khác khi có một sự kiện kích hoạt
+
+Animation
+Dùng để tạo ra các hiệu ứng phức tạp và lặp lại mà không cần sự kiện kích hoạt.
+

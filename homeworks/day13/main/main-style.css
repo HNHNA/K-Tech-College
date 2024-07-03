@@ -69,7 +69,7 @@ header{
 }
 
 section{
- margin: 50px 0px; 
+  margin: 50px 0px; 
 }
 
 .new-arrivals{
@@ -102,7 +102,6 @@ section{
 }
 .product-item:hover{
   /* background-color: #f3f3f3; */
-
 }
 
 .new-arrivals .product-item a{
@@ -169,14 +168,37 @@ button:hover::after,
   transform: translate3d(200%, 0, 0) rotate(35deg);
 }
 
+.btn {
+  animation: pulse 1s infinite;
+  transition: transform 0.3s ease;
+  }
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 .clothes-item a{
   text-decoration: none;
   margin-bottom: 1em;
 }
 
 .clothes-item img{
+  height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -253,15 +275,46 @@ justify-content: center;
   .new-arrivals .product-container{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    transition: 5s;
+    /* transition: linear 5s; */
   }
+
+  .product-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 2s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
 }
 @media only screen and (min-width: 768px) and (max-width: 991px){
   .new-arrivals .product-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    transition: linear 5s;
-
+  }
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-item {
+    animation: slideIn 2s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
   
