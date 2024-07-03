@@ -1,26 +1,185 @@
-<!DOCTYPE >
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    p::before{
-      border-bottom: 1px;
-    }
-  </style>
+    <base href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="./src/style.css"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar .header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar .header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition-timing-function: cubic-bezier();
+        }
+
+        .sidebar .header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .sidebar .menu {
+            padding: 20px;
+        }
+
+        .sidebar .menu .item {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .sidebar .menu .item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .sidebar .menu .item i {
+            margin-right: 10px;
+        }
+
+
+        .sidebar .footer {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #ddd;
+
+        }
+
+        .sidebar .footer img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .sidebar .footer .info {
+            flex-grow: 1;
+        }
+
+        .sidebar .footer .info .name {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .sidebar .footer .info .email {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .sidebar .footer .actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .sidebar .footer .actions button {
+            margin: 5px 0;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .sidebar .footer .actions button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .sidebar{
+          background-color: red;
+          display: gird;
+          row-gap: ;
+        }
+
+        .sidebar:has(input#toggle:checked){
+          width: 50px;
+          transition: width linear 0.5s;
+          overflow: hidden;
+        }
+        
+        
+    </style>
 </head>
+
 <body>
-  <p>
-    <mark>asdjsdhj</mark>
-    <form action="" name="" target="" autocomplete="" enctype="" novalidate></form>
-  </p>
-  <input type="submit" name="asdhsadj">
-  <img  src="" alt="">
-  <map name="" class="" id=""></map>
-  <frameset></frameset>
-  <img src="" alt="" even>
-  <!-- <canvas width="50px" height="50px" style="border: 1px solid black;"></canvas> -->
-  <p>ahsdghsadsadsdsdajds</p>
+    <input type="text" name="ádgsahjd" value="ádsdsd">
+    <em>adsahjdgjhdsghjsad</em>
+    <textarea row name="" id=""></textarea>
+    <code></code>
+    <div class="sidebar">
+        <aside></aside>
+        <aside></aside>
+        <input type="" >
+        <div>
+            <div class="header">
+              <input type="checkbox" id="toggle">
+                <img src="https://via.placeholder.com/40" alt="Avatar">
+                <h2>widelab</h2>
+            </div>
+            <div class="menu">
+                <div class="item">
+                    <i class="fas fa-inbox"></i>
+                    <span>Inbox</span>
+                </div>
+                <div class="item">
+                    <i class="fas fa-bell"></i>
+                    <span>Activity</span>
+                </div>
+                <div class="item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </div>
+                <div class="item">
+                    <i class="fas fa-folder"></i>
+                    <span>Documents</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="info">
+                <img src="https://via.placeholder.com/40" alt="Sandra Marx">
+                <div>
+                    <p class="name">Hien Phan</p>
+                    <p class="email">hienphan3107@gmail.com</p>
+                </div>
+            </div>
+            <div class="actions">
+                <button>Update App</button>
+                <button>Logout</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

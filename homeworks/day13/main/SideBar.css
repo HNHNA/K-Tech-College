@@ -51,11 +51,12 @@
 }
 
 #nav-bar {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 4px;
-  position: absolute;
+  position: fixed;
   left: 1vw;
   top: 0vw;
-  height: calc(100% - 4vh);
+  height: calc(100% - 2vh);
   /* height: 50%; */
   background: var(--navbar-dark-primary);
   border-radius: 16px;
@@ -158,7 +159,7 @@ label[for=nav-toggle] {
 }
 #nav-content::-webkit-scrollbar-thumb {
   border-radius: 99px;
-  background-color: #D62929;
+  background-color: white;
 }
 
 #nav-content-highlight {
@@ -341,5 +342,6 @@ label[for=nav-footer-toggle] {
 }
 #nav-footer-content::-webkit-scrollbar-thumb {
   border-radius: 99px;
-  background-color: #D62929;
+  background-color: white;
+
 }
