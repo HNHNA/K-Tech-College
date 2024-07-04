@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web</title>
+    <style>
+      html {
+        font-size: 20px;
+      }
+      body {
+        font-size: 16px;
+        all: unset;
+      }
+
+      .layout {
+        display: flex;
+      }
+
+      .sidebar {
+        width: 200px;
+        background-color: #0ff193;
+        flex-shrink: 0;
+      }
+
+      main#content {
+        height: 100vh;
+        grid-template-rows: auto 2fr auto;
+        grid-template-columns: 1fr 2fr auto 1.5fr;
+        gap: 10px;
+      }
+
+      header#header {
+        grid-area: header;
+        background-color: #f1c40f;
+      }
+
+      section#hotnews {
+        grid-area: hotnews;
+        background-color: #e74c3c;
+      }
+
+      section#img {
+        grid-area: img;
+        background-color: #3498db;
+      }
+
+      section#sidenews {
+        grid-area: sidenews;
+        background-color: #2ecc71;
+      }
+
+      section#sidenews2 {
+        grid-area: sidenews2;
+        background-color: #9b59b6;
+      }
+
+      section#other {
+        grid-area: other;
+      }
+
+      @media (min-width: 992px) {
+        main#content {
+          display: grid;
+          grid-template-areas:
+            "header header header header"
+            "hotnews img sidenews sidenews2"
+            "other other other sidenews2";
+        }
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        body {
+          background-color: #f39c12;
+        }
+        main#content {
+          display: grid;
+          grid-template-areas:
+            "header header header header"
+            "hotnews hotnews img img"
+            "sidenews sidenews sidenews2 sidenews2"
+            "other other other other";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">Sidebar</aside>
+      <main id="content">
+        <header id="header">Header</header>
+        <section id="hotnews">Hot News</section>
+        <section id="img">Image</section>
+        <section id="sidenews" style="background-color: #9b59b6">
+          Side News 1
+        </section>
+        <section id="sidenews2">Side News 2</section>
+        <section id="other">Other</section>
+        <script src="lib.js"></script>
+        <script>
+          fetch("list-item.html")
+            .then((response) => response.text())
+            .then(async (data) => {
+              document.querySelector("#other").innerHTML = data;
+              loadItemToList();
+            });
+
+          fetch("side-news.html")
+            .then((response) => response.text())
+            .then(async (data) => {
+              document.querySelector("#sidenews").innerHTML = data;
+              loadItemToSideNews();
+            });
+
+          fetch("sidebar.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.querySelector(".sidebar").innerHTML = data;
+              loadItemToSidebar();
+            });
+            fetch("slider.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.querySelector("#img").innerHTML = data;
+              loadItemToSidebar();
+            });
+            fetch("header.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.querySelector("#header").innerHTML = data;
+              loadItemToSidebar();
+            });
+            fetch("sidenew2.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.querySelector("#sidenews2").innerHTML = data;
+              loadItemToSidebar();
+            });
+        </script>
+      </main>
+    </div>
+  </body>
+</html>

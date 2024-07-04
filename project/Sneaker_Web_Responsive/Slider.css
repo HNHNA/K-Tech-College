@@ -9,10 +9,11 @@ html h2, body h2 {
   opacity: 0.4;
 }
 
-.line, .carousel li img, .carousel li, .carousel {
+.center, .carousel li img, .carousel li, .carousel {
   width: 100%;
-  height: calc(100vh - 500px);
-  object-fit: contain;
+  height: 64vh;
+  /* height: 100%; */
+  object-fit: none;
 }
 
 .flex, .carousel-wrapper, .center, .carousel ul {
@@ -61,7 +62,7 @@ html h2, body h2 {
   width: 15px;
   height: 15px;
   opacity: 0.5;
-  background-color: black;
+  background-color: white;
   border-radius: 50%;
   transition: 0.4s;
 }

@@ -1,0 +1,188 @@
+<style>
+  .sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar .header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar .header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .sidebar .header h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .sidebar .menu {
+    padding: 20px;
+  }
+
+  .sidebar .menu .item {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .sidebar .menu .item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .sidebar .menu .item i {
+    margin-right: 10px;
+  }
+
+  .sidebar .footer {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd;
+  }
+
+  .sidebar .footer img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .sidebar .footer .info {
+    flex-grow: 1;
+  }
+
+  .sidebar .footer .info .name {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .sidebar .footer .info .email {
+    font-size: 12px;
+    color: #777;
+  }
+
+  .sidebar .footer .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .sidebar .footer .actions button {
+    margin: 5px 0;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .sidebar .footer .actions button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .sidebar {
+    background-color: red;
+    transition: width 0.5s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  div.menu {
+    overflow: auto;
+    height: 300px;
+  }
+
+  .sidebar:has(input#toggle:checked) {
+    width: 50px;
+  }
+
+  .sidebar:has(input#toggle:checked) .menu{
+    display: none;
+  }
+
+  .sidebar:has(input#toggle:checked) .img{
+    display: none;
+  }
+
+  .sidebar .item {
+    transition: background-color 0.5s;
+  }
+</style>
+
+<div class="sidebar">
+  <div>
+    <div class="header">
+      <img src="https://via.placeholder.com/40" alt="Avatar" />
+      <h2>widelab</h2>
+      <input type="checkbox" id="toggle" />
+    </div>
+    <div class="menu">
+      <div class="item">
+        <i class="fas fa-inbox"></i>
+        <span>Inbox</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-bell"></i>
+        <span>Activity</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Schedule</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-folder"></i>
+        <span>Documents</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </div>
+      <div class="item">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="info">
+      <img src="https://via.placeholder.com/40" alt="Sandra Marx" />
+      <div>
+        <p class="name">Hien Phan</p>
+        <p class="email">hienphan3107@gmail.com</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button>Update App</button>
+      <button>Logout</button>
+    </div>
+  </div>
+</div>
