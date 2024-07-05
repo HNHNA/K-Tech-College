@@ -23,8 +23,6 @@ body, html{
   width: 100%;
 }
 
-
-
 header{
   width: 100%;
   display: flex;
@@ -55,6 +53,20 @@ header{
   list-style-type: none; 
   display: flex;
   align-items: center; 
+  position: relative;
+}
+
+.list-menu .item-menu{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  background-color: aquamarine;
+  display: none;
+}
+
+.list-menu:has(input#toogle:checked)~.item-menu{
+  display: block;
 }
 
 .list-menu li a{
