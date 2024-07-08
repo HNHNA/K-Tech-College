@@ -1,0 +1,83 @@
+/* Yeu cau 1 */
+nav {
+  display: flex;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+/* Yeu cau 2 */
+.info {
+  background: DarkGray;
+  box-shadow: 0 0 2px rgba(169, 169, 169, .25);
+  color: #fff;
+}
+.alert {
+  background: DarkRed;
+  box-shadow: 0 0 2px rgba(139, 0, 0, .25);
+  color: #fff;
+}
+.success {
+  background: DarkGreen;
+  box-shadow: 0 0 2px rgba(0, 100, 0, .25);
+  color: #fff;
+}
+
+/* Yeu cau 3 */
+.container {
+  display: flex;
+}
+
+article[role="main"] {
+  width: 62.5%;
+}
+
+aside[role="complementary"] {
+  width: 31.25%;
+  margin-left: auto;
+}
+
+/* Yeu cau 4 */
+/* root:{
+  --font-family: Helvetica, sans-serif;
+  --primary-color: #333;
+  --background-color: #fff;
+}
+
+body {
+  font: var(--font-family);
+  color: var(--primary-color);
+  background-color: var(--background-color);
+} */
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+/* SCSS to CSS by Me */
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #3498db;
+  color: #fff;
+}
+.btn-secondary {
+  background-color: #2ecc71;
+  color: #fff;
+}
+

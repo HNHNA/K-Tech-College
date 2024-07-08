@@ -1,0 +1,84 @@
+// Yeu cau 1
+nav {
+  display: flex;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+  }
+}
+
+// Yeu cau 2
+@mixin theme($theme: DarkGray) {
+  background: $theme;
+  box-shadow: 0 0 2px rgba($theme, .25);
+  color: #fff;
+}
+
+.info {
+  @include theme;
+}
+.alert {
+  @include theme($theme: DarkRed);
+}
+.success {
+  @include theme($theme: DarkGreen);
+}
+
+// Yeu cau 3
+@use "sass:math";
+
+.container {
+  display: flex;
+}
+
+article[role="main"] {
+  width: math.div(600px, 960px) * 100%;
+}
+
+aside[role="complementary"] {
+  width: math.div(300px, 960px) * 100%;
+  margin-left: auto;
+}
+
+// Yeu cau 4
+$font-family: Helvetica, sans-serif;
+$primary-color: #333;
+$background-color: #fff;
+
+body {
+  font: 100% $font-family;
+  color: $primary-color;
+  background-color: $background-color;
+}
+
+// SCSS by Me
+%button-styles {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  @extend %button-styles;
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-secondary {
+  @extend %button-styles;
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+
+

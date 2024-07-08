@@ -1,0 +1,29 @@
+:root{
+  --padding-24: 24px;
+  --padding-4-12: 4px 12px;
+
+  --gap-24: 24px;
+  --gap-12: 12px;
+  --gap-8: 8px;
+
+  --border-radius-20: 20px;
+  --border-radius-32: 32px;
+  --border-radius-10: 10px;
+
+
+  --fontsize-14: 14px;
+  --fontsize-18: 18px;
+  --fontsize-24: 24px;
+
+  --font-weight-8: 800;
+  --font-weight-5: 500;
+  --font-weight-5: 500;
+
+
+  --width-32: 32px;
+  --height-32: 32px;
+
+
+  --line-height-150: 150%;
+
+}

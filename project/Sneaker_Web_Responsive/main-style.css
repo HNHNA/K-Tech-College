@@ -1,17 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap");
-html, body {
-  /* color: white; */
-  /* background-color: #1e1e23; */
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body{
   text-align: center;
   font-family: "Raleway", sans-serif;
-}
-
-body, html{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
+	/* color: #fff; */
+	/* background-color: #1f2029; */
+	overflow-x: hidden;
+  /* background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 4%; */
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: center; */
+  /* display: -ms-flexbox; */
+  /* -ms-flex-wrap: wrap; */
+  /* -ms-flex-pack: center; */
+  /* padding-top: 100px; */
+  /* padding-bottom: 300px; */
 }
 
 .material-symbols-outlined{

@@ -22,35 +22,7 @@
     </div>
   </header>
   <nav id="navbar">
-    <ul class="list-menu">
-      <li>
-        <a href=""><span>Home</span></a> 
-        <span class="material-symbols-outlined"> arrow_drop_down </span>
-        <input id="toggle" type="checkbox">
-        <div class="item-menu">
-          <p>m1</p>
-          <p>m1</p>
-          <p>m1</p>
-          <p>m1</p>
-          <p>m1</p>
-        </div>
-      </li>
-      <li>
-        <a href=""><span>Shop By Brand</span></a>
-        <span class="material-symbols-outlined"> arrow_drop_down </span>
-      </li>
-      <li>
-        <img  src="https://i.pinimg.com/564x/4d/84/77/4d8477f24eff576d7797a02f0c577f44.jpg" alt="">      
-      </li>
-      <li>
-        <a href=""><span>Shop By Size</span></a>
-        <span class="material-symbols-outlined"> arrow_drop_down </span>
-      </li>
-      <li>
-        <a href=""><span>Contact Us</span></a>
-        <span class="material-symbols-outlined"> arrow_drop_down </span>
-      </li>      
-    </ul>
+    <!-- NavBar -->
   </nav>
   <div id="slider"> 
     <!-- SLIDER -->
@@ -232,6 +204,12 @@
     .then((response) => response.text())
     .then(async (data) => {
       document.querySelector("#sidebar").innerHTML = data;
+      loadItemToList(); 
+    });
+    fetch("NavBar.html")
+    .then((response) => response.text())
+    .then(async (data) => {
+      document.querySelector("#navbar").innerHTML = data;
       loadItemToList();
     });
 </script>
