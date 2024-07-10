@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap");
 
 
+:root{
+  --background-color: white;
+  --text-color: black;
+}
+
 *,
 *::before,
 *::after {
@@ -10,14 +15,16 @@
 body{
   text-align: center;
   font-family: "Raleway", sans-serif;
+	overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
 	/* color: #fff; */
 	/* background-color: #1f2029; */
-	overflow-x: hidden;
   /* background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
   background-position: center;
   background-repeat: repeat;
   background-size: 4%; */
-  width: 100%;
   /* display: flex;
   flex-wrap: wrap;
   justify-content: center; */
@@ -256,7 +263,6 @@ footer{
   width: 100%;
   margin-top: 20px;
   background-color: black;
-
 }
 
 footer .subscribe{
@@ -284,6 +290,7 @@ footer .subscribe input{
   font-size: 20px;
   color: white;
 } */
+
 .subscribe .subscribe-form{
   display: flex;
   justify-content: space-between;
