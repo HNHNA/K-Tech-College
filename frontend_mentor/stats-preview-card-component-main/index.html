@@ -4,14 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
     <title>Frontend Mentor | Stats preview card component</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,7 +14,8 @@
     />
 
     <style>
-      h1 {
+      h1,
+      p {
         margin: 0;
       }
       body {
@@ -40,7 +35,7 @@
         position: relative;
       }
 
-      .container::before {
+      .media::before {
         content: "";
         position: absolute;
         top: 0;
@@ -48,26 +43,35 @@
         right: 0;
         bottom: 0;
         background-color: hsl(277, 64%, 61%);
-        opacity: 0.6; /* Điều chỉnh độ trong suốt */
-        backdrop-filter: blur(20px); /* Điều chỉnh độ mờ */
-        z-index: 1; 
+        opacity: 0.6;
+        backdrop-filter: blur(20px);
       }
 
       .content {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        margin: 0px 180px;
-        gap: 20px;
+        gap: 50px;
+        margin: 80px;
+      }
+
+      .content h1 {
+        font-size: 3rem;
+      }
+
+      .content strong {
+        color: hsl(277, 64%, 61%);
+        font-size: 3rem;
       }
 
       .description {
-        margin-top: 50px;
+        margin-top: 30px;
         display: flex;
         gap: 50px;
         justify-content: center;
         align-items: center;
+        text-transform: uppercase;
       }
 
       .media img {
@@ -77,18 +81,14 @@
       }
 
       .container p {
-        font-size: 18px;
+        font-size: 21px;
         opacity: 0.5;
+        line-height: 1.7;
       }
 
       .container span {
-        font-weight: 800;
-        font-size: 24px;
-      }
-
-      .content strong {
-        color: hsl(277, 64%, 61%);
-        font-size: 32px;
+        font-weight: 500;
+        font-size: 40px;
       }
     </style>
   </head>
@@ -100,18 +100,20 @@
           Discover the benefits of data analytics and make better decisions
           regarding revenue, customer experience, and overall efficiency.
         </p>
-        <div class="description">
-          <div class="item-des">
-            <span>10k+</span>
-            <p>companies</p>
-          </div>
-          <div class="item-des">
-            <span>314</span>
-            <p>templates</p>
-          </div>
-          <div class="item-des">
-            <span>12m+</span>
-            <p>queries</p>
+        <div class="container-des">
+          <div class="description">
+            <div class="item-des">
+              <span>10k+</span>
+              <p>companies</p>
+            </div>
+            <div class="item-des">
+              <span>314</span>
+              <p>templates</p>
+            </div>
+            <div class="item-des">
+              <span>12m+</span>
+              <p>queries</p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,61 @@
+1.	git clone
+        --->Tác dụng: Dùng để clone repo trên internet về local.
+        --->Cách dùng: Khi bạn cần code trên một repo mới hoàn toàn, thì ta xài lệnh này để lấy code về máy mình.
+2.	git init
+        --->Tác dụng: Khởi tạo một repository Git mới trong thư mục hiện tại.
+        --->Cách dùng: Khi bạn bắt đầu một dự án mới và muốn sử dụng Git để quản lý phiên bản. 
+3.	git config -e
+        --->Tác dụng: Mở trình chỉnh sửa để cấu hình Git.
+        --->Cách dùng: Khi bạn cần thiết lập hoặc thay đổi cấu hình Git của mình. 
+4.	git add .
+        --->Tác dụng: Thêm tất cả các thay đổi hiện tại vào staging area để chuẩn bị commit.
+        --->Cách dùng: Khi bạn đã thực hiện thay đổi và muốn thêm chúng vào commit tiếp theo. 
+5.	git commit -m "first commit"
+        --->Tác dụng: Tạo một commit mới với thông điệp "first commit".
+        --->Cách dùng: Khi bạn muốn lưu các thay đổi đã staged vào lịch sử Git với thông điệp rõ ràng. 
+6.	git fetch
+        --->Tác dụng: Tải xuống tất cả các thay đổi từ repository remote nhưng không merge.
+        --->Cách dùng: Khi bạn muốn cập nhật các tham chiếu (references) của mình về trạng thái hiện tại của remote. 
+7.	git pull
+        --->Tác dụng: Kết hợp việc tải xuống các thay đổi từ remote và merge chúng vào branch hiện tại.
+        --->Cách dùng: Khi bạn muốn cập nhật branch hiện tại với các thay đổi mới nhất từ remote. 
+8.	git pull origin
+        --->Tác dụng: Kết hợp việc tải xuống các thay đổi từ remote repository được gọi là origin và merge chúng vào branch hiện tại.
+        --->Cách dùng: Khi bạn muốn cập nhật branch hiện tại với các thay đổi mới nhất từ remote repository origin. 
+9.	git merge feature-a
+        --->Tác dụng: Merge nhánh feature-a vào nhánh hiện tại.
+        --->Cách dùng: Khi bạn muốn tích hợp các thay đổi từ nhánh feature-a vào branch hiện tại. 
+10.	git merge origin/feature-a
+        --->Tác dụng: Merge nhánh feature-a từ remote origin vào nhánh hiện tại.
+        --->Cách dùng: Khi bạn muốn tích hợp các thay đổi từ nhánh feature-a trên remote origin vào branch hiện tại.
+11.	git checkout -b my-branch
+        --->Tác dụng: Tạo và chuyển sang một nhánh mới có tên my-branch.
+        --->Cách dùng: Khi bạn muốn tạo một nhánh mới để bắt đầu một tính năng hoặc sửa lỗi mới. Ví dụ: git checkout -b my-branch.
+12.	git branch
+        --->Tác dụng: Hiển thị danh sách các nhánh hiện có.
+        --->Cách dùng: Khi bạn muốn xem tất cả các nhánh hiện có trong repository của mình. 
+13.	git branch -d my-local-branch
+        --->Tác dụng: Xóa một nhánh local đã được hợp nhất có tên my-local-branch.
+        --->Cách dùng: Khi bạn đã hợp nhất một nhánh và không còn cần thiết giữ nó lại. 
+14.	git branch -D my-local-branch
+        --->Tác dụng: Xóa một nhánh local có tên my-local-branch bất kể đã được hợp nhất hay chưa.
+        --->Cách dùng: Khi bạn muốn xóa một nhánh bất kể trạng thái của nó. 
+15.	git push
+        --->Tác dụng: Đẩy các commit từ nhánh local hiện tại lên remote.
+        --->Cách dùng: Khi bạn muốn cập nhật remote repository với các commit từ nhánh local. Ví dụ: git push.
+16.	git push -f
+        --->Tác dụng: Bắt buộc đẩy các commit từ nhánh local hiện tại lên remote, ghi đè các thay đổi trên remote.
+        --->Cách dùng: Khi bạn cần buộc cập nhật remote với các commit từ nhánh local, thường dùng sau khi sửa lại lịch sử commit.
+17.	git push origin main
+        --->Tác dụng: Đẩy các commit từ nhánh main local lên remote origin.
+        --->Cách dùng: Khi bạn muốn cập nhật remote repository origin với các commit từ nhánh main local. Ví dụ: git push origin main.
+18.	git push --set-upstream origin my-local-branch
+        --->Tác dụng: Thiết lập remote tracking cho nhánh my-local-branch local với nhánh tương ứng trên remote origin.
+        --->Cách dùng: Khi bạn muốn liên kết một nhánh local với một nhánh remote để dễ dàng pull/push các thay đổi. Ví dụ: git push --set-upstream origin my-local-branch.
+
+Câu hỏi thêm:
+Nên chọn lệnh git pull origin main hay git merge origin/main khi cập nhật nhánh my-branch từ nhánh main trên remote?
+•	Lựa chọn tốt nhất: git pull origin main
+•	Lý do: Lệnh git pull origin main thực hiện cả việc fetch và merge các thay đổi từ nhánh main trên remote về nhánh my-branch trên local trong một bước, giúp đồng bộ nhanh chóng hơn.
+ Sử dụng git merge origin/main yêu cầu bạn phải git fetch trước, tạo thêm một bước thủ công.
+
