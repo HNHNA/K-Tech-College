@@ -1,0 +1,151 @@
+:root {
+  --background-color: #202124;
+  --text-color: #e8eaed;
+  --border-color: #5f6368;
+  --border-radius: 8px;
+
+  --fontsize--icon: 20px;
+}
+
+*{
+  padding: 0;margin: 0;box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#header {
+  height: 50px;
+  width: 100%;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.input-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#formTodo {
+  width: 500px;
+  margin: 0px auto;
+  height: 50px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+#formTodo input {
+  border-radius: var(--border-radius);
+  flex-grow: 1;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+#formTodo button {
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  width: 60px;
+  cursor: pointer;
+}
+
+#container {
+
+}
+
+#todolist {
+  margin: 20px auto;
+  width: 250px;
+  min-height: 200px;
+  max-height: 500px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+}
+
+.todo-container {
+  width: 100%;
+  height: 90%;
+  overflow: auto;
+  margin: 10px auto;
+  margin: 0;
+}
+
+.todo-container::-webkit-scrollbar {
+  width: 0px;
+}
+
+.todo-item {
+  background-color: var(--background-color);
+  padding: 0px 20px;
+  margin-top: 4px;
+  display: grid;
+  grid-template-columns: 84% 8% 8%;
+  gap: 3px;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  flex-wrap: wrap;
+}
+.todo-item:hover{
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.todo-item div{
+  text-align: left;
+  word-wrap: break-word; 
+}
+
+.todo-item span{
+  font-size: var(--fontsize--icon);
+  cursor: pointer;
+}
+
+.btn-container{
+  margin: 20px 0px;
+  width: 100%;
+  text-align: center;
+  border-top: 0.1px solid var(--border-color);
+  display: none;
+}
+
+.todo-item span:hover,
+#btn-clear span:hover
+{
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#btn-clear {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+}
+
+#btn-clear span{
+  font-size: var(--fontsize--icon);
+  margin-top: 3px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+

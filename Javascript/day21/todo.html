@@ -8,146 +8,37 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <style>
-      body {
-        all: unset;
-      }
-
-      #container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: whitesmoke;
-      }
-
-      #todolist {
-        width: 600px;
-        height: 700px;
-        border-radius: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid black;
-      }
-
-      .todo-container {
-        background-color: black;
-        width: 500px;
-        height: 100%;
-        border-radius: 20px;
-        overflow: auto;
-        margin: 10px auto;
-      }
-
-      .todo-container::-webkit-scrollbar {
-        width: 0px;
-      }
-
-      #formTodo {
-        height: 50px;
-        display: flex;
-        gap: 5px;
-        width: 70%;
-        justify-content: center;
-        margin: 20px 0px;
-      }
-
-      #formTodo input {
-        border-radius: 20px;
-        flex-grow: 1;
-        background-color: whitesmoke;
-        border: 1px solid black;
-      }
-
-      button {
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* border: none; */
-      }
-
-      span {
-        cursor: pointer;
-      }
-
-      .todo-item {
-        background-color: whitesmoke;
-        height: 50px;
-        margin: 20px 20px;
-        border-radius: 20px;
-        display: grid;
-        grid-template-columns: 84% 8% 8%;
-        align-items: center;
-        text-align: center;
-        animation: fadeIn 0.5s ease-in-out;
-
-        /* animation: fadeOut 0.5s ease-in-out forwards; */
-      }
-
-      .container-btn {
-        margin: 20px 0px;
-        height: 50px;
-      }
-
-      .todo-item span:hover {
-        animation: fadeIn 1s ease-in-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .completed {
-        opacity: 0.5;
-      }
-
-      .btn-clear {
-        width: 40px;
-        height: 40px;
-      }
-    </style>
+    <link rel="stylesheet" href="./todo.css">
   </head>
   <body>
+    <div id="header">
+      
+    </div>
     <div id="container">
-      <div id="todolist">
-        TO DO LIST
-        <form id="formTodo" action="">
-          <input type="todo" type="text" />
+      <div class="input-title">
+        <form id="formTodo"  action="">
+          <input placeholder="Tạo ghi chú" type="todo" type="text" />
           <button type="submit">
             <span class="material-symbols-outlined"> add </span>
           </button>
         </form>
-        <div class="todo-container abc xyz"></div>
-        <div class="container-btn">
+      </div>
+
+      <div id="todolist">
+        <div class="todo-container"></div>
+        <div class="btn-container">
           <button id="btn-clear" type="submit">
             <span class="material-symbols-outlined">delete_sweep </span>
           </button>
         </div>
       </div>
     </div>
-    <div id="parentElement" style="background-color: lightblue; padding: 20px">
-      <button id="childElement">Click me</button>
-    </div>
+
     <script>
-      document
-        .getElementById("childElement")
-        .addEventListener("click", function (event) {
-          event.stopPropagation(); // Ngăn chặn sự kiện lan truyền lên phần tử cha
-          event.preventDefault(); // stop event default element
-          alert("Child button clicked!");
-        });
-      document
-        .getElementById("parentElement")
-        .addEventListener("click", function () {
-          alert("Parent element clicked!");
-        });
+
+      var inputEle = document.querySelector("input");
+      var formElement = document.querySelector("#formTodo");
+      const todoContainer = document.querySelector(".todo-container");
 
       function addTodo(todoText) {
         const todoItem = document.createElement("div");
@@ -159,11 +50,26 @@
         addRemoveButton(todoItem);
         addCompleteButton(todoItem);
         todoContainer.appendChild(todoItem);
-
+        
+        // Add Clear Button
+        updateClearButtonVisibility();
         // Lưu danh sách todos vào localStorage
         saveTodosToLocalStorage();
       }
 
+
+    function updateClearButtonVisibility() {
+      const todoItems = document.querySelectorAll(".todo-item");
+      const clearBtn = document.querySelector(".btn-container");
+      if (todoItems.length > 0) {
+        clearBtn.style.display = "block";
+        console.log(1223);
+
+      } else {
+        clearBtn.style.display = "none";
+        console.log(123);
+      }
+    }
       function addCompleteButton(element) {
         const completeBtn = document.createElement("span");
         completeBtn.textContent = "check_circle";
@@ -180,12 +86,6 @@
         // Lưu danh sách todos vào localStorage
         saveTodosToLocalStorage();
 
-        //   removeBtn.addEventListener("click", () => {
-        //   element.classList.add("fade-out"); // Thêm lớp để áp dụng animation fade-out
-        //   setTimeout(() => {
-        //     element.remove(); // Xóa phần tử sau khi hoàn thành animation
-        //   }, 5000); // Thời gian phù hợp với thời gian của animation fadeOut (0.5s)
-        // });
       }
 
       function saveTodosToLocalStorage() {
@@ -198,7 +98,7 @@
         });
         localStorage.setItem("todos", JSON.stringify(todos));
       }
-
+      
       function loadTodosFromLocalStorage() {
         const todos = JSON.parse(localStorage.getItem("todos"));
         if (todos) {
@@ -209,12 +109,10 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        loadTodosFromLocalStorage();
+        // loadTodosFromLocalStorage();
       });
 
-      var inputEle = document.querySelector("input");
-      var formElement = document.querySelector("#formTodo");
-      const todoContainer = document.querySelector(".todo-container");
+      
 
       formElement.addEventListener("submit", (e) => {
         e.preventDefault(); // no load page when submit
@@ -253,7 +151,7 @@
         // }
       });
 
-      const clearBtn = document.getElementById ("btn-clear");
+      const clearBtn = document.getElementById("btn-clear");
       clearBtn.addEventListener("click", () => {
         todoContainer.innerHTML = "";
       });
