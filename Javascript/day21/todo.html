@@ -1,223 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link rel="stylesheet" href="./todo.css" />
-  </head>
-  <body>
-    <div id="header"></div>
-    <div id="container">
-      <div class="input-title">
-        <form id="formTodo" action="">
-          <input placeholder="Tạo ghi chú" type="todo" type="text" />
-          <button type="submit">
-            <span class="material-symbols-outlined"> add </span>
-          </button>
-        </form>
-      </div>
 
-      <div id="todo-list">
-        <div class="todo-container"></div>
-        <div class="btn-clear-container">
-          <button id="btn-clear">
-            <span class="material-symbols-outlined">delete</span>
-          </button>
-          <button id="btn-completeAll">
-            <span class="material-symbols-outlined">assignment_turned_in</span>
-          </button>
-          <button id="btn-checkBox">
-            <span class="material-symbols-outlined">select_check_box</span>
-          </button>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./todo.css" />
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="container">
+    <div class="input-title">
+      <form id="formTodo" action="">
+        <input placeholder="Tạo ghi chú" type="todo" type="text" />
+        <button type="submit">
+          <span class="material-symbols-outlined"> add </span>
+        </button>
+      </form>
     </div>
 
-    <script>
-      const inputEle = document.querySelector("input");
-      const formElement = document.querySelector("#formTodo");
-      const todoContainer = document.querySelector(".todo-container");
-
-      const todoListContainer = document.querySelector("#todo-list");
-      const btnClearContainer = document.querySelector(".btn-clear-container");
-
-      const clearBtn = document.getElementById("btn-clear");
-      const completeAllBtn = document.getElementById("btn-completeAll");
-      const checkboxBtn = document.getElementById("btn-checkBox");
-
-      // const inputCheckBox = document.querySelectorAll('.input-checkbox')
-
-      function addTodo(todoText) {
-        const todoItem = document.createElement("div");
-        const itemValue = document.createElement("div");
-        todoItem.classList.add("todo-item");
-        itemValue.classList.add("item");
-        itemValue.textContent = todoText;
-        todoItem.appendChild(itemValue);
-        addRemoveButton(todoItem);
-        addCompleteButton(todoItem);
-        addCheckBox(todoItem);
-        todoContainer.appendChild(todoItem);
-
-        // Lưu danh sách todos vào localStorage
-        saveTodosToLocalStorage();
-      }
-
-      function updateClearButtonVisibility() {
-        const todoItems = document.querySelectorAll(".todo-item");
-        const clearBtn = document.querySelector(".btn-container");
-        if (todoItems.length > 0) {
-          clearBtn.style.display = "block";
-          console.log(1223);
-        } else {
-          clearBtn.style.display = "none";
-          console.log(123);
-        }
-      }
-
-      function addCompleteButton(element) {
-        const completeBtn = document.createElement("span");
-        completeBtn.textContent = "check_small";
-        completeBtn.classList.add("complete", "material-symbols-outlined");
-        element.appendChild(completeBtn);
-      }
-
-      function addRemoveButton(element) {
-        const removeBtn = document.createElement("span");
-        removeBtn.textContent = "remove";
-        removeBtn.classList.add("delete", "material-symbols-outlined");
-        element.appendChild(removeBtn);
-
-        // Lưu danh sách todos vào localStorage
-        // saveTodosToLocalStorage();
-      }
-
-      function addCheckBox(element) {
-        let checkBoxBtns = document.createElement("input");
-        checkBoxBtns.type = "checkbox";
-        checkBoxBtns.classList.add("input-checkbox");
-        element.appendChild(checkBoxBtns);
-      }
-
-      function saveTodosToLocalStorage() {
-        // Lấy danh sách các mục công việc từ DOM và lưu vào localStorage
-        const todos = [];
-        const todoItems = document.querySelectorAll(".todo-item");
-        todoItems.forEach((item) => {
-          const todoText = item.querySelector(".item").textContent;
-          todos.push(todoText);
-        });
-        localStorage.setItem("todos", JSON.stringify(todos));
-      }
-
-      function loadTodosFromLocalStorage() {
-        const todos = JSON.parse(localStorage.getItem("todos"));
-        if (todos) {
-          todos.forEach((todoText) => {
-            addTodo(todoText);
-          });
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        // loadTodosFromLocalStorage();
-      });
-
-      formElement.addEventListener("submit", (e) => {
-        e.preventDefault(); // no load page when submit
-
-        // if (!inputEle.value) { // no add null value
-        //   return;
-        // }
-
-        // debugger;
-        addTodo(inputEle.value);
-
-        formElement.reset(); // reset form then submit
-      });
-
-      todoContainer.addEventListener("click", (e) => {
-        switch (true) {
-          case e.target.classList.contains("delete"):
-            e.target.parentElement.remove();
-            break;
-          case e.target.classList.contains("complete"):
-            e.target.parentElement.classList.toggle("completed");
-            break;
-          default:
-            break;
-        }
-        // if (
-        //   e.target.tagName === "BUTTON" &&
-        //   e.target.classList.contains("remove")
-        // ) {
-        //   e.target.parentElement.remove();
-        // } else if (
-        //   e.target.tagName === "BUTTON" &&
-        //   e.target.classList.contains("complete")
-        // ) {
-        //   e.target.parentElement.classList.toggle("complete");
-        // }
-      });
-
-      todoListContainer.addEventListener("mouseover", () => {
-        btnClearContainer.style.visibility = "visible";
-      });
-
-      todoListContainer.addEventListener("mouseout", () => {
-        btnClearContainer.style.visibility = "hidden";
-      });
-
-      clearBtn.addEventListener("click", () => {
-        todoContainer.innerHTML = "";
-        // localStorage.removeItem("todos")
-      });
-
-      completeAllBtn.addEventListener("click", () => {
-        let todoItems = document.querySelectorAll(".todo-item");
-        // console.log("array toggle:", todoItems);
-        // for (let i = 0; i < todoItems.length; i++) {
-        //   todoItems[i].classList.toggle("completed");
-        // }
-        todoItems.forEach((item) => {
-          if (!item.classList.contains("completed")) {
-            item.classList.toggle("completed");
-          }
-          // console.log(!item.classList.contains("completed"))
-        });
-      });
-
-      checkboxBtn.addEventListener("click", () => {
-        // let todoItems = document.querySelectorAll(".todo-item");
-        let checkBox = document.querySelectorAll(".input-checkbox");
-        // todoItems.forEach((item) => {
-          // console.log(checkBox);
-          checkBox.forEach((a) => {
-            // if(a) {
-            //   a.style.visibility = "hidden" ? "visible" : "hidden";
-            // } else {
-            //   a.style.visibility = "hidden"
-            // }
-            if(a.style.visibility != "hidden"){
-              a.style.visibility = 'visible'
-              console.log('hidden')
-              return;
-            } 
-            if(a.style.visibility = "hidden"){
-              a.style.visibility = 'visible'
-              console.log('visible')
-              return;
-            } 
-
-            
-          })
-        // });
-      });
-    </script>
-  </body>
+    <div id="todo-list">
+      <div class="todo-container"></div>
+      <div class="btn-container">
+        <button title="Delete All" class="btn btn-clear">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+        <button title="Complete" All class="btn btn-completeAll">
+          <span class="material-symbols-outlined">person_check</span>
+        </button>
+        <button title="Delete Checked" class="btn btn-completeAny">
+          <span class="material-symbols-outlined">assignment_turned_in</span>
+        </button>
+        <button title="Complete Checked" class="btn btn-deleteAny">
+          <span class="material-symbols-outlined">remove_selection</span>
+        </button>
+        <!-- <button id="btn-checkBox">
+          <span class="material-symbols-outlined">select_check_box</span>
+        </button> -->
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./todo.js"></script>
 </html>

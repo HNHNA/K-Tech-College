@@ -3,12 +3,13 @@
   --text-color: #e8eaed;
   --border-color: #5f6368;
   --border-radius: 8px;
-
   --fontsize--icon: 20px;
 }
 
-*{
-  padding: 0;margin: 0;box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -58,10 +59,6 @@ body {
   cursor: pointer;
 }
 
-#container {
-
-}
-
 #todo-list {
   position: relative;
   margin: 20px auto;
@@ -100,49 +97,46 @@ body {
   animation: fadeIn 0.5s ease-in-out;
   flex-wrap: wrap;
 }
-.todo-item:hover{
+.todo-item:hover {
   border-bottom: 1px solid var(--border-color);
   /* border-top: 1px solid var(--border-color); */
 }
 
-.todo-item div{
+.todo-item div {
   text-align: left;
-  word-wrap: break-word; 
+  word-wrap: break-word;
 }
 
-.todo-item span{
+.todo-item span {
   font-size: var(--fontsize--icon);
   cursor: pointer;
 }
 
-.todo-item .input-checkbox{
-  visibility: hidden;
+.todo-item .input-checkbox {
+  /* visibility: hidden; */
 }
 
-.completed{
+.completed {
   text-decoration: line-through;
 }
 
-.btn-clear-container{
+.btn-container {
   /* margin: 20px 0px; */
   width: 100%;
   text-align: center;
   border-top: 0.1px solid var(--border-color);
   position: absolute;
   bottom: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .todo-item span:hover,
-#btn-clear span:hover,
-#btn-completeAll span:hover,
-#btn-checkBox span:hover
-{
+.btn:hover {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-#btn-clear,
-#btn-completeAll,
-#btn-checkBox{ 
+.btn {
   background-color: var(--background-color);
   color: var(--text-color);
   border: none;
@@ -159,4 +153,19 @@ body {
   }
 }
 
+.tooltip {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 10;
+}
 
+.tooltip.show {
+  opacity: 1;
+}
