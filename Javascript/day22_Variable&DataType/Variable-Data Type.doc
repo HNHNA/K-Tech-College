@@ -1,0 +1,19 @@
+1. Phân biệt let var const
+      Phạm vi:
+      var: Toàn cục hoặc hàm.
+      let và const: Khối.
+
+      Hoisting:
+      var: Được hoisting và khởi tạo với undefined.
+      let và const: Được hoisting nhưng không khởi tạo.
+
+      Redeclaration:
+      var: Có thể khai báo lại.
+      let và const: Không thể khai báo lại.
+      Assignment:
+
+      var và let: Có thể thay đổi giá trị.
+      const: Không thể thay đổi giá trị sau khi khởi tạo (trừ thuộc tính của đối tượng/mảng).
+
+
+2. Scope,global-scope & function-scope & block-scope{}
