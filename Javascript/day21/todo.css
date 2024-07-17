@@ -21,6 +21,15 @@ body {
   height: 50px;
   width: 100%;
   border-bottom: 2px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#header h1{
+  text-align: center;
+  color: var(--text-color);
 }
 
 .input-title {
@@ -90,7 +99,7 @@ body {
   padding: 0px 20px;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 76% 8% 8% 8%;
+  grid-template-columns: 68% 8% 8% 8% 8%;
   gap: 5px;
   align-items: center;
   text-align: center;
@@ -129,6 +138,8 @@ body {
   bottom: 0;
   display: flex;
   justify-content: space-around;
+  visibility: hidden;
+
 }
 
 .todo-item span:hover,

@@ -1,44 +1,35 @@
-const inputEle = document.querySelector("input");
 const formElement = document.querySelector("#formTodo");
+const inputEle = document.querySelector("input");
+
 const todoContainer = document.querySelector(".todo-container");
 const todoListContainer = document.querySelector("#todo-list");
-const btnClearContainer = document.querySelector(".btn-clear-container");
+const btnContainer = document.querySelector(".btn-container");
 
 const clearAllBtn = document.querySelector(".btn-clear");
 const completeAllBtn = document.querySelector(".btn-completeAll");
 
-const completeCheckedBtn = document.querySelector(".btn-completeAny");
-const deleteCheckedBtn = document.querySelector(".btn-deleteAny");
+const completeCheckedBtn = document.querySelector(".btn-completeChecked");
+const deleteCheckedBtn = document.querySelector(".btn-deleteChecked");
 
-// const checkboxBtn = document.querySelector(".btn-checkBox");
-
-function addTodo(todoText) {
+function addTodo(todoText, isCompleted = false) {
   const todoItem = document.createElement("div");
   const itemValue = document.createElement("div");
-  todoItem.classList.add("todo-item");
+  todoItem.classList = "todo-item";
+  if (isCompleted) {
+    todoItem.classList.add("completed");
+  }
   itemValue.classList.add("item");
   itemValue.textContent = todoText;
   todoItem.appendChild(itemValue);
   addRemoveButton(todoItem);
   addCompleteButton(todoItem);
+  addEditButton(todoItem);
   addCheckBox(todoItem);
   todoContainer.appendChild(todoItem);
 
   // Lưu danh sách todos vào localStorage
   saveTodosToLocalStorage();
 }
-
-// function updateClearButtonVisibility() {
-//   const todoItems = document.querySelectorAll(".todo-item");
-//   const clearBtn = document.querySelector(".btn-container");
-//   if (todoItems.length > 0) {
-//     clearBtn.style.display = "block";
-//     console.log(1223);
-//   } else {
-//     clearBtn.style.display = "none";
-//     console.log(123);
-//   }
-// }
 
 function addCompleteButton(element) {
   const completeBtn = document.createElement("span");
@@ -47,9 +38,16 @@ function addCompleteButton(element) {
   element.appendChild(completeBtn);
 }
 
+function addEditButton(element) {
+  const editBtn = document.createElement("span");
+  editBtn.textContent = "edit";
+  editBtn.classList.add("edit", "material-symbols-outlined");
+  element.appendChild(editBtn);
+}
+
 function addRemoveButton(element) {
   const removeBtn = document.createElement("span");
-  removeBtn.textContent = "remove";
+  removeBtn.textContent = "close";
   removeBtn.classList.add("delete", "material-symbols-outlined");
   element.appendChild(removeBtn);
 }
@@ -62,23 +60,31 @@ function addCheckBox(element) {
 }
 
 function saveTodosToLocalStorage() {
-  // Lấy danh sách các mục công việc từ DOM và lưu vào localStorage
-  const todos = [];
-  const todoItems = document.querySelectorAll(".todo-item");
-  todoItems.forEach((item) => {
-    const todoText = item.querySelector(".item").textContent;
-    todos.push(todoText);
-  });
+  // Save todo-item to LocalStorage
+  const todos = Array.from(document.querySelectorAll(".todo-item")).map(
+    (item) => ({
+      text: item.querySelector(".item").textContent,
+      completed: item.classList.contains("completed"),
+    })
+  );
   localStorage.setItem("todos", JSON.stringify(todos));
+  // todoItems.forEach((item) => {
+  //   let todoText = item.querySelector(".item").textContent;
+  //   let isCompleted = item.classList.contains("completed");
+  //   todos.push({
+  //     text: todoText,
+  //     completed: isCompleted
+  //   });
+  // });
+  // // console.log(todos)
+  // localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function loadTodosFromLocalStorage() {
   const todos = JSON.parse(localStorage.getItem("todos"));
-  if (todos) {
-    todos.forEach((todoText) => {
-      addTodo(todoText);
-    });
-  }
+  todos.forEach((todo) => {
+    addTodo(todo.text, todo.completed);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -90,6 +96,7 @@ formElement.addEventListener("submit", (e) => {
 
   if (!inputEle.value) {
     // no add null value
+    alert("No Value")
     return;
   }
 
@@ -97,6 +104,7 @@ formElement.addEventListener("submit", (e) => {
   addTodo(inputEle.value);
 
   formElement.reset(); // reset form then submit
+  saveTodosToLocalStorage();
 });
 
 todoContainer.addEventListener("click", (e) => {
@@ -109,28 +117,36 @@ todoContainer.addEventListener("click", (e) => {
       e.target.parentElement.classList.toggle("completed");
       saveTodosToLocalStorage();
       break;
+    case e.target.classList.contains("edit"):
+      const itemValue = e.target.parentElement.querySelector(".item");
+      itemValue.setAttribute("contenteditable", "true");
+      itemValue.focus();
+
+      const saveAndBlur = () => {
+        itemValue.removeAttribute("contenteditable");
+        saveTodosToLocalStorage();
+      };
+      // Save when blur
+      itemValue.addEventListener("blur", saveAndBlur);
+      // Save when press Enter
+      itemValue.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          itemValue.blur();
+        }
+      });
+      break;
     default:
       break;
   }
-  // if (
-  //   e.target.tagName === "BUTTON" &&
-  //   e.target.classList.contains("remove")
-  // ) {
-  //   e.target.parentElement.remove();
-  // } else if (
-  //   e.target.tagName === "BUTTON" &&
-  //   e.target.classList.contains("complete")
-  // ) {
-  //   e.target.parentElement.classList.toggle("complete");
-  // }
 });
 
 todoListContainer.addEventListener("mouseover", () => {
-  btnClearContainer.style.visibility = "visible";
+  btnContainer.style.visibility = "visible";
 });
 
 todoListContainer.addEventListener("mouseout", () => {
-  btnClearContainer.style.visibility = "hidden";
+  btnContainer.style.visibility = "hidden";
 });
 
 clearAllBtn.addEventListener("click", () => {
@@ -140,14 +156,14 @@ clearAllBtn.addEventListener("click", () => {
 
 completeAllBtn.addEventListener("click", () => {
   let todoItems = document.querySelectorAll(".todo-item");
-  // for (let i = 0; i < todoItems.length; i++) {
-  //   todoItems[i].classList.toggle("completed");
-  // }
+  const allCompleted = Array.from(todoItems).every(item => item.classList.contains("completed"));
   todoItems.forEach((item) => {
-    if (!item.classList.contains("completed")) {
-      item.classList.toggle("completed");
+    if (allCompleted) {
+      item.classList.remove("completed");
+    } else {
+      item.classList.add("completed");
     }
-  });
+  })
   saveTodosToLocalStorage();
 });
 
@@ -161,33 +177,13 @@ deleteCheckedBtn.addEventListener("click", () => {
 
 completeCheckedBtn.addEventListener("click", () => {
   let checkBoxItems = document.querySelectorAll(".input-checkbox:checked");
+  const allcheckBoxItems = Array.from(checkBoxItems).every(item => item.parentElement.classList.contains("completed"));
   checkBoxItems.forEach((checkbox) => {
-    checkbox.parentElement.classList.add("completed");
+    if (allcheckBoxItems) {
+      checkbox.parentElement.classList.remove("completed");
+    } else {
+      checkbox.parentElement.classList.add("completed");
+    }
   });
   saveTodosToLocalStorage();
 });
-
-// checkboxBtn.addEventListener("click", () => {
-//   // let todoItems = document.querySelectorAll(".todo-item");
-//   let checkBox = document.querySelectorAll(".input-checkbox");
-//   // todoItems.forEach((item) => {
-//   // console.log(checkBox);
-//   checkBox.forEach((a) => {
-//     // if(a) {
-//     //   a.style.visibility = "hidden" ? "visible" : "hidden";
-//     // } else {
-//     //   a.style.visibility = "hidden"
-//     // }
-//     if (a.style.visibility != "hidden") {
-//       a.style.visibility = 'visible'
-//       console.log('hidden')
-//       return;
-//     }
-//     if (a.style.visibility = "hidden") {
-//       a.style.visibility = 'visible'
-//       console.log('visible')
-//       return;
-//     }
-//   })
-//   // });
-//   });
