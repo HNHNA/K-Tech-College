@@ -24,10 +24,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
-#header h1{
+#header h1 {
   text-align: center;
   color: var(--text-color);
 }
@@ -121,12 +120,10 @@ body {
   cursor: pointer;
 }
 
-.todo-item .input-checkbox {
-  /* visibility: hidden; */
-}
-
 .completed {
   text-decoration: line-through;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .btn-container {
@@ -139,7 +136,6 @@ body {
   display: flex;
   justify-content: space-around;
   visibility: hidden;
-
 }
 
 .todo-item span:hover,
@@ -179,4 +175,10 @@ body {
 
 .tooltip.show {
   opacity: 1;
+}
+
+.btn-completeChecked:disabled,
+.btn-deleteChecked:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

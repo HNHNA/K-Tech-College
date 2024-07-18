@@ -1,8 +1,8 @@
 const formElement = document.querySelector("#formTodo");
 const inputEle = document.querySelector("input");
 
-const todoContainer = document.querySelector(".todo-container");
 const todoListContainer = document.querySelector("#todo-list");
+const todoContainer = document.querySelector(".todo-container");
 const btnContainer = document.querySelector(".btn-container");
 
 const clearAllBtn = document.querySelector(".btn-clear");
@@ -15,18 +15,20 @@ function addTodo(todoText, isCompleted = false) {
   const todoItem = document.createElement("div");
   const itemValue = document.createElement("div");
   todoItem.classList = "todo-item";
+
   if (isCompleted) {
     todoItem.classList.add("completed");
   }
   itemValue.classList.add("item");
   itemValue.textContent = todoText;
   todoItem.appendChild(itemValue);
+
   addRemoveButton(todoItem);
   addCompleteButton(todoItem);
   addEditButton(todoItem);
   addCheckBox(todoItem);
-  todoContainer.appendChild(todoItem);
 
+  todoContainer.appendChild(todoItem);
   // Lưu danh sách todos vào localStorage
   saveTodosToLocalStorage();
 }
@@ -53,10 +55,10 @@ function addRemoveButton(element) {
 }
 
 function addCheckBox(element) {
-  let checkBoxBtns = document.createElement("input");
-  checkBoxBtns.type = "checkbox";
-  checkBoxBtns.classList.add("input-checkbox");
-  element.appendChild(checkBoxBtns);
+  let checkBoxBtn = document.createElement("input");
+  checkBoxBtn.type = "checkbox";
+  checkBoxBtn.classList.add("input-checkbox");
+  element.appendChild(checkBoxBtn);
 }
 
 function saveTodosToLocalStorage() {
@@ -68,16 +70,6 @@ function saveTodosToLocalStorage() {
     })
   );
   localStorage.setItem("todos", JSON.stringify(todos));
-  // todoItems.forEach((item) => {
-  //   let todoText = item.querySelector(".item").textContent;
-  //   let isCompleted = item.classList.contains("completed");
-  //   todos.push({
-  //     text: todoText,
-  //     completed: isCompleted
-  //   });
-  // });
-  // // console.log(todos)
-  // localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function loadTodosFromLocalStorage() {
@@ -94,13 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
 formElement.addEventListener("submit", (e) => {
   e.preventDefault(); // no load page when submit
 
-  if (!inputEle.value) {
-    // no add null value
-    alert("No Value")
+  if (!inputEle.value || inputEle.value.trim() === "") {
+    // no add null value && spacing value
+    alert("No Value Item");
+    formElement.reset(); // reset form then submit
     return;
   }
 
-  // debugger;
+  // debugger
   addTodo(inputEle.value);
 
   formElement.reset(); // reset form then submit
@@ -114,10 +107,15 @@ todoContainer.addEventListener("click", (e) => {
       saveTodosToLocalStorage();
       break;
     case e.target.classList.contains("complete"):
-      e.target.parentElement.classList.toggle("completed");
+      e.target.parentElement.classList.toggle('completed')
       saveTodosToLocalStorage();
-      break;
+      break;      
     case e.target.classList.contains("edit"):
+      // const todoItems = e.target.parentElement.classList.contains("todo-item")
+      // console.log(todoItems);
+      // if(todoItems.classList.contains("completed")) {
+      //   todoItems.classList.remove("completed")
+      // }
       const itemValue = e.target.parentElement.querySelector(".item");
       itemValue.setAttribute("contenteditable", "true");
       itemValue.focus();
@@ -136,13 +134,27 @@ todoContainer.addEventListener("click", (e) => {
         }
       });
       break;
+    case e.target.classList.contains("input-checkbox"):
+      saveTodosToLocalStorage(); // save input checkbox checked
+      let checkBoxItems = todoListContainer.querySelectorAll(".input-checkbox:checked");
+      if (checkBoxItems.length <=0 ) {
+        completeCheckedBtn.disabled = true;
+        deleteCheckedBtn.disabled = true;
+      } else {
+        completeCheckedBtn.disabled = false;
+        deleteCheckedBtn.disabled = false;
+      }
+      break;
     default:
       break;
   }
 });
 
 todoListContainer.addEventListener("mouseover", () => {
-  btnContainer.style.visibility = "visible";
+  let todoItems = todoListContainer.querySelectorAll(".todo-item");
+  if (todoItems.length <= 0) {
+    btnContainer.style.visibility = "hidden";
+  } else btnContainer.style.visibility = "visible";
 });
 
 todoListContainer.addEventListener("mouseout", () => {
@@ -155,15 +167,17 @@ clearAllBtn.addEventListener("click", () => {
 });
 
 completeAllBtn.addEventListener("click", () => {
-  let todoItems = document.querySelectorAll(".todo-item");
-  const allCompleted = Array.from(todoItems).every(item => item.classList.contains("completed"));
-  todoItems.forEach((item) => {
+  let todoValueItems = document.querySelectorAll(".todo-item");
+  const allCompleted = Array.from(todoValueItems).every((item) =>
+    item.classList.contains("completed")
+  );
+  todoValueItems.forEach((item) => {
     if (allCompleted) {
       item.classList.remove("completed");
     } else {
       item.classList.add("completed");
     }
-  })
+  });
   saveTodosToLocalStorage();
 });
 
@@ -177,7 +191,9 @@ deleteCheckedBtn.addEventListener("click", () => {
 
 completeCheckedBtn.addEventListener("click", () => {
   let checkBoxItems = document.querySelectorAll(".input-checkbox:checked");
-  const allcheckBoxItems = Array.from(checkBoxItems).every(item => item.parentElement.classList.contains("completed"));
+  const allcheckBoxItems = Array.from(checkBoxItems).every((item) =>
+    item.parentElement.classList.contains("completed")
+  );
   checkBoxItems.forEach((checkbox) => {
     if (allcheckBoxItems) {
       checkbox.parentElement.classList.remove("completed");
