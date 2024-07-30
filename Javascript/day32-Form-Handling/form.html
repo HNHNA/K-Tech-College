@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <h1>Form Handling</h1>
+    <form id="myform" action="#" method="">
+      <fieldset>
+        <legend>Login</legend>
+        <label for="fname">First Name: </label>
+        <input id="fname" type="text" name="fname" required autofocus/>
+        <label for="fusername">User Name: </label>
+        <input id="fusername" type="text" name="fusername" autofocus required/>
+        <label for="fpassword">Password:</label>
+        <input id="fpassword" type="password" value="" placeholder="Password....">
+        <select name="Gender" id="selectgender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>   
+        <label for="fage">Age:</label>
+        <input id="fage" type="" value=""  placeholder="Age.....">
+        <label for="femail">Email:</label>
+        <input id="femail" type="" value="" placeholder="Email....." role="alert">
+        <input type="" list="browsers" name="browser" placeholder="Choose.....">
+        <datalist id="browsers">
+          <option value="Edge">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+        <input type="submit" value="Submit" />
+      </fieldset>
+    </form>
+  </body>
+</html>
+<script src="./main.js"></script>
