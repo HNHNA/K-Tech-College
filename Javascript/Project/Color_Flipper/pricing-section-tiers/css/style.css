@@ -1,0 +1,154 @@
+:root{
+  --background-color: white;
+  --hightlight-color: blue;
+}
+body {
+  font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#header > :first-child{ 
+  color: var(--hightlight-color);
+}
+
+#header > :nth-last-child(2){ 
+  opacity: 0.5;  
+}
+
+#header > :last-child{ 
+  opacity: 0.5;  
+}
+
+#navbar{
+  height: 50px;
+}
+
+#navbar .container-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+}
+
+#navbar .container-btn button{
+  background-color: white;
+  border: none;
+  opacity: 0.5; 
+  width: 100px;
+  height: 40px;
+}
+
+#navbar .container-btn button:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  opacity: 1;
+  /* border: 1px solid black; */
+}
+
+#container-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#card{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  display: none;
+  border-radius: 5px;
+  height: 500px;
+  width: 328px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+#card:hover{
+  border-color: var(--hightlight-color);
+}
+
+#card .card-content{
+  height: 60%;
+  margin: 20px 20px;
+}
+
+#card .card-content p{
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+#card .card-popular{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(84, 178, 240);
+  color: var(--hightlight-color);
+  /* padding: 8px 0px; */
+}
+
+#card .card-content .card-header{
+
+}
+
+#card .card-content .card-price{
+  font-size: 14px;
+  margin: 20px 0px;
+}
+
+.card-price span{
+  font-size: 40px;
+  font-weight: 1000;
+}
+
+#card .card-content .card-des{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+#card .card-content .card-des span{
+  color: var(--hightlight-color);
+  font-size: 24px;
+}
+
+#card .card-btn{
+  display: flex;
+  justify-content: center;
+}
+
+#card .card-btn button{
+  padding: 8px 100px;
+  border: none;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#card .card-btn button:hover{
+  background-color: var(--hightlight-color);
+  color: white;
+}
+
+.show {
+  display: block; 
+}
+
+
+
+
+
