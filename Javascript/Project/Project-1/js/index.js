@@ -1,29 +1,67 @@
-const btnAnnually = document.getElementById('btn-annually')
-const btnMonthly = document.getElementById('btn-monthly')
+document.addEventListener("DOMContentLoaded", () => {
+  const data = [
+    {
+      price: {
+        monthly: 9.99,
+        annually: 6.99,
+      },
+    },
+    {
+      price: {
+        monthly: 19.99,
+        annually: 15.99,
+      },
+    },
+    {
+      price: {
+        monthly: 29.99,
+        annually: 25.99,
+      },
+    },
+  ];
+  
+  function updatePrices(viewMode) {
+    const priceElements = document.querySelectorAll("#container-card .card-price");
+    priceElements.forEach((priceElement, index) => {
+      const priceSpan = priceElement.querySelector(".card-price span");
+      const priceP = priceElement.querySelector(".card-price p");
 
-const allCard = document.querySelectorAll('#card')
+      const plan = data[index];
 
-btnAnnually.addEventListener('click', function() {
-  allCard.forEach((card,index) =>  {
-  const priceCard = card.querySelector('.card-price span')
-  console.log(priceCard);  
-  priceCard.forEach(i => {
-    i.
-  })
+      if (plan) {
+        if (viewMode === "monthly") {
+          priceSpan.textContent = `$${plan.price.monthly}`;
+          priceP.textContent = `Billed monthly`;
+        } else if (viewMode === "annually") {
+          priceSpan.textContent = `$${plan.price.annually}`;
+          priceP.textContent = `Billed annually($${Math.round(
+            plan.price.annually * 12
+          )} )`;
+        }
+      }
+    });
+
+    localStorage.setItem("pricingViewMode", viewMode);
+  }
+
+  const savedViewMode = localStorage.getItem("pricingViewMode");
+  if (savedViewMode) {
+    updatePrices(savedViewMode);
+    document.getElementById(`btn-${savedViewMode}`).classList.add("active");
+  } else {
+    updatePrices("monthly"); 
+    document.getElementById("btn-monthly").classList.add("active");
+  }
+
+  document.getElementById("btn-monthly").addEventListener("click", () => {
+    updatePrices("monthly");
+    document.getElementById("btn-monthly").classList.add("active");
+    document.getElementById("btn-annually").classList.remove("active");
+  });
+
+  document.getElementById("btn-annually").addEventListener("click", () => {
+    updatePrices("annually");
+    document.getElementById("btn-annually").classList.add("active");
+    document.getElementById("btn-monthly").classList.remove("active");
   });
 });
-
-// btnMonthly.addEventListener('click', function() {
-//   allCard.forEach((card,index) => {
-//     if(index >= 3){
-//     card.style.display = 'block';
-//     }else {
-//     card.style.display = 'none';
-//     }
-//   });
-// });
-
-
-
-
-
