@@ -1,6 +1,6 @@
 :root{
   --background-color: white;
-  --hightlight-color: blue;
+  --hightlight-color: #4338ca;
 }
 body {
   font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
@@ -69,36 +69,36 @@ body {
 }
 
 #card{
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-  display: none;
   border-radius: 5px;
   height: 500px;
   width: 328px;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: column;
 }
 
 #card:hover{
   border-color: var(--hightlight-color);
 }
 
+#card .card-popular{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(67, 56, 202, 0.1);
+  color: var(--hightlight-color);
+}
+
 #card .card-content{
-  height: 60%;
-  margin: 20px 20px;
+  margin: 20px 20px 0px 20px;
+  box-sizing: border-box;
+  flex-grow: 1;
 }
 
 #card .card-content p{
   opacity: 0.5;
   font-size: 14px;
-}
-
-#card .card-popular{
-  display: flex;
-  justify-content: center;
-  background-color: rgb(84, 178, 240);
-  color: var(--hightlight-color);
-  /* padding: 8px 0px; */
 }
 
 #card .card-content .card-header{
@@ -130,6 +130,7 @@ body {
 #card .card-btn{
   display: flex;
   justify-content: center;
+  margin: 30px 0px;
 }
 
 #card .card-btn button{
