@@ -1,4 +1,4 @@
-:root{
+:root {
   --background-color: white;
   --hightlight-color: #4338ca;
 }
@@ -13,33 +13,34 @@ body {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-#header{
+#header {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 40px;
 }
 
-#header > :first-child{ 
+#header > :first-child {
   color: var(--hightlight-color);
 }
 
-#header > :nth-last-child(2){ 
-  opacity: 0.5;  
+#header > :nth-last-child(2) {
+  opacity: 0.5;
 }
 
-#header > :last-child{ 
-  opacity: 0.5;  
+#header > :last-child {
+  opacity: 0.5;
 }
 
-#navbar{
+#navbar {
+  margin: 30px 0px;
   height: 50px;
 }
 
-#navbar .container-btn{
+#navbar .container-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,41 +48,37 @@ body {
   gap: 20px;
 }
 
-#navbar .container-btn button{
-  background-color: white;
+#navbar .container-btn button {
+  background-color: var(--background-color);
   border: none;
-  opacity: 0.5; 
-  width: 100px;
-  height: 40px;
+  opacity: 0.5;
+  width: 130px;
+  height: 35px;
 }
 
-#navbar .container-btn button:hover{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  opacity: 1;
-  /* border: 1px solid black; */
-}
-
-#container-card{
+#container-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
+  padding-bottom: 40px;
 }
 
-#card{
+#card {
   border-radius: 5px;
   height: 500px;
   width: 328px;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   display: flex;
   flex-direction: column;
 }
 
-#card:hover{
+#card:hover {
   border-color: var(--hightlight-color);
 }
 
-#card .card-popular{
+#card .card-popular {
   height: 50px;
   display: flex;
   justify-content: center;
@@ -90,67 +87,102 @@ body {
   color: var(--hightlight-color);
 }
 
-#card .card-content{
+#card .card-content {
   margin: 20px 20px 0px 20px;
   box-sizing: border-box;
   flex-grow: 1;
 }
 
-#card .card-content p{
+#card .card-content p {
   opacity: 0.5;
   font-size: 14px;
 }
 
-#card .card-content .card-header{
-
-}
-
-#card .card-content .card-price{
+#card .card-content .card-price {
   font-size: 14px;
   margin: 20px 0px;
 }
 
-.card-price span{
+.card-price span {
   font-size: 40px;
   font-weight: 1000;
 }
 
-#card .card-content .card-des li{
+#card .card-content .card-des li {
   display: flex;
-  gap: 10px; 
+  gap: 10px;
   align-items: center;
   margin: 10px 0px;
   list-style: none;
 }
 
-#card .card-content .card-des span{
+#card .card-content .card-des span {
   color: var(--hightlight-color);
   font-size: 24px;
 }
 
-#card .card-btn{
+#card .card-btn {
   display: flex;
   justify-content: center;
   margin: 30px 0px;
 }
 
-#card .card-btn button{
+#card .card-btn button {
   padding: 8px 100px;
   border: none;
-  background-color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: var(--background-color);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-#card .card-btn button:active{
-  background-color: var(--hightlight-color);
-  color: white;
+.active-btn {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  opacity: 1 !important;
 }
 
-.show {
-  display: block; 
+@keyframes zoom-out {
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.02);
+  }
 }
 
+.active-card {
+  border: 0.5px solid var(--hightlight-color);
+  animation: zoom-out 2s ease-in-out infinite;
+}
 
+.active-text {
+  color: var(--hightlight-color);
+}
 
+.active-btn-buy {
+  background-color: var(--hightlight-color) !important;
+  color: var(--background-color);
+}
 
+@media screen and (max-width: 1440px) {
+  #container-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  #container-card #card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #container-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
