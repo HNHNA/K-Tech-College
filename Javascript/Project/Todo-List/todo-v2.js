@@ -57,7 +57,7 @@ function addRemoveButton(element) {
   element.appendChild(removeBtn);
 }
 
-// Add a checkbox
+// Add a checkbox 
 function addCheckBox(element) {
   let checkBoxBtn = document.createElement("input");
   checkBoxBtn.type = "checkbox";

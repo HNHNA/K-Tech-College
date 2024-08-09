@@ -1,0 +1,6 @@
+Framework => 
+  Framework lớn hơn và phức tạp hơn Library.
+  Framework bạn phải thay đổi cấu trúc code của dự án (project’s structure) theo các quy tắc của framework
+
+Library => 
+  Library hoạt động bị động. Nghĩa là nó chỉ được gọi khi nào chúng ta cần dùng nó.

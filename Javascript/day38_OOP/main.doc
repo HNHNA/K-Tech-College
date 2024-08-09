@@ -1,0 +1,61 @@
+class là một khuôn mẫu ~ object là một thể hiện của lớp
+
+có 2 cách khai báo class:
+class MyClass {
+   constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  // các phương thức của class
+  constructor() { ... }
+  method1() { ... }
+  method2() { ... }
+  method3() { ... }
+  ...
+}
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+bind() 
+Giải thích: Tạo một hàm mới với ngữ cảnh (this) được cố định và các đối số được chỉ định sẵn.
+Khi sử dụng: Khi bạn cxần tạo một hàm mới mà luôn gọi với một ngữ cảnh và các đối số cố định.
+function greet(greeting, name) {
+  console.log(`${greeting}, ${name}!`);
+}
+
+const greetHello = greet.bind(null, 'Hello'); // 'null' vì không cần ngữ cảnh đặc biệt
+
+greetHello('Alice'); // Output: Hello, Alice!
+
+apply()
+Giải thích: Gọi một hàm với ngữ cảnh (this) được chỉ định và truyền các đối số dưới dạng mảng.
+Khi sử dụng: Khi bạn muốn gọi hàm với một ngữ cảnh và truyền các đối số dưới dạng mảng.
+function greet(greeting, name) {
+  console.log(`${greeting}, ${name}!`);
+}
+
+greet.apply(null, ['Hello', 'Bob']); // Output: Hello, Bob!
+
+call()
+Giải thích: Gọi một hàm với ngữ cảnh (this) được chỉ định và truyền các đối số từng cái một.
+Khi sử dụng: Khi bạn muốn gọi hàm với một ngữ cảnh và truyền các đối số trực tiếp.
+function greet(greeting, name) {
+  console.log(`${greeting}, ${name}!`);
+}
+
+greet.call(null, 'Hello', 'Charlie'); // Output: Hello, Charlie!
+
+
+bind(): Tạo hàm mới với ngữ cảnh và đối số cố định.
+apply(): Gọi hàm với ngữ cảnh và đối số dưới dạng mảng.
+call(): Gọi hàm với ngữ cảnh và đối số trực tiếp.
+
+OOP ? 
+Tính đóng gói (Encapsulation)
+Tính trừu tượng (Abstraction)
+Tính kế thừa (Inheritance)
+Tính đa hình (Polymorphism)
+

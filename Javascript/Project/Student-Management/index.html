@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/x-icon" href="./images/student-management-4-16.png">
+</head>
+<body>
+  <header>
+    <h1>Student Management</h1>
+  </header>
+  <main>
+    <section>
+      <div class="form-container">
+        <form id="user-form">
+          <div class="form-group">
+            <label for="mssv">CODE:</label>
+            <input type="text" id="code" name="mssv">
+          </div>
+          <div class="form-group">
+            <label for="firstname">Firstname:</label>
+            <input type="text" id="firstname" name="firstname">
+          </div>
+          <div class="form-group">
+            <label for="lastname">Lastname:</label>
+            <input type="text" id="lastname" name="lastname">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+          </div>
+          <div class="form-group">
+            <label for="image">Image URL:</label>
+            <input type="url" id="image" name="image">
+          </div>
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="form-group">
+            <button type="submit" id="student-submit">Submit</button>
+          </div>
+        </form>
+    </section>
+
+    <section>
+      <!-- <h2>Danh Sách Sinh Viên</h2> -->
+      <table id="student-table">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Date</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>
