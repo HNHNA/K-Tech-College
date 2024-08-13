@@ -47,6 +47,19 @@
             <button type="submit" id="student-submit">Add Student</button>
           </div>
         </form>
+        <form id="search-form">
+          <div class="form-group">
+            <label for="search-id">Search by ID:</label>
+            <input placeholder="Please enter Student Code" type="text" id="search-id" name="search-id">
+          </div>
+          <div class="form-group">
+            <label for="search-name">Search by Name:</label>
+            <input placeholder="Please enter Name" type="text" id="search-name" name="search-name">
+          </div>
+          <div class="form-group">
+            <button type="button" id="search-submit">Search</button>
+          </div>
+        </form>
     </section>
     <section>
       <table id="student-table">
@@ -59,6 +72,7 @@
             <th>Address</th>
             <th>Date</th>
             <th>Image</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

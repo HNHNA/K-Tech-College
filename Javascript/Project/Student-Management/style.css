@@ -1,20 +1,39 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 50px;
 }
-.form-container {
-  margin: auto;
-  padding: 20px;
+
+main{
   border: 1px solid #ddd;
+}
+
+header{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form-container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
   border-radius: 8px;
   background-color: #f9f9f9;
 }
-.form-group {
+
+#user-form,
+#search-form{
+  flex-grow: 1;
+  padding: 30px 30px 0px 30px;
+}
+
+  .form-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 15px;
 }
 .form-group label {
-  display: block;
-  margin-bottom: 5px;
+  width: 20%;
   font-weight: bold;
 }
 .form-group input[type="text"],
@@ -26,12 +45,9 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-.form-group img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 10px;
-}
-.form-group button {
+
+.form-group button,
+.container-btn button{
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -40,6 +56,42 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
-.form-group button:hover {
+
+.form-group button:hover,
+.container-btn button:hover{
   background-color: #0056b3;
+}
+
+#student-table{
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+thead > tr{
+  text-transform: uppercase;
+}
+
+td, th{
+  width: calc(100% / 8);  
+  text-align: center;
+}
+
+td > img{
+  border-radius: 50%;
+}
+/* Define animation for highlighting the searched student */
+@keyframes highlight {
+  0% {
+    background-color: #f9f9f9;
+  }
+  50% {
+    background-color: #e0f7fa;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+
+.highlighted {
+  animation: highlight 1s ease;
 }
